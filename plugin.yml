@@ -1,0 +1,29 @@
+name: RussianRoulette
+version: 0.1
+description: A Russian Roulette Plugin for fun
+author: Kaede
+ 
+main: moe.kaede.RR.RussianRoulette
+ 
+commands:
+  rr:
+    description: Set yourself on fire.
+    permission: roulette.rr
+    usage: Syntax error! Simply type /rr to start a roulette.
+  sr:
+    description: Set yourself on fire.
+    permission: roulette.sr
+    usage: Syntax error! Simply type /rr to start a roulette.
+ 
+permissions:
+  inferno.*:
+    description: Gives access to all commands.
+    children:
+      roulette.rr: true
+      roulette.sr: true
+  roulette.rr:
+    description: Allows you to start a roulette.
+    default: false
+  roulette.sr:
+    description: Allows you to start a staff roulette.
+    default: false
