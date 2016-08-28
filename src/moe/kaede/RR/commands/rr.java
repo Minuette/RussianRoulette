@@ -1,6 +1,5 @@
 package moe.kaede.RR.commands;
 
-import java.util.HashMap;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
@@ -9,14 +8,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+
+import moe.kaede.RR.managers.InventoryManager;
 
 public class rr implements CommandExecutor {
-	
-	public static HashMap<String, Integer> xplevel = new HashMap<String, Integer>();
-	public static HashMap<String, ItemStack[]> armourContents = new HashMap<String, ItemStack[]>();
-	public static HashMap<String, ItemStack[]> inventoryContents = new HashMap<String, ItemStack[]>();
-	
+	InventoryManager im = new InventoryManager();
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
 		if (sender.hasPermission("roulette.rr") || sender.isOp()) {
@@ -28,14 +24,12 @@ public class rr implements CommandExecutor {
 			Random chosen = new Random();
 			int whoToKill = chosen.nextInt(numPlayers);
 
-			for (Player p : sender.getServer().getOnlinePlayers()) {
+			for (Player p : Bukkit.getServer().getOnlinePlayers()) {
 				if (count == whoToKill) {
 					p.sendMessage(ChatColor.LIGHT_PURPLE + ((Player) sender).getDisplayName() + " hands you a gun...");
 					//Saving items + EXP
-					xplevel.put(p.getName(), p.getLevel());
-					armourContents.put(p.getName(), p.getInventory().getArmorContents());
-			        inventoryContents.put(p.getName(), p.getInventory().getContents());
-			        
+					InventoryManager.saveInventory(p);
+			        //Kills Player
 					p.setHealth(0.0D);
 					count++;
 				} else {

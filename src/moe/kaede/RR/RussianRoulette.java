@@ -39,7 +39,6 @@ public class RussianRoulette extends JavaPlugin {
 
 	public void registerEvents() {
 		PluginManager pm = getServer().getPluginManager();
-
 		pm.registerEvents(new onRespawn(), this);
 	}
 
