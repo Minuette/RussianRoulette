@@ -9,21 +9,27 @@ commands:
   rr:
     description: Set yourself on fire.
     permission: roulette.rr
-    usage: Syntax error! Simply type /rr to start a roulette.
   sr:
     description: Set yourself on fire.
     permission: roulette.sr
-    usage: Syntax error! Simply type /rr to start a roulette.
+  roulette:
+    description: Set yourself on fire.
  
 permissions:
-  inferno.*:
+  roulette.*:
     description: Gives access to all commands.
     children:
       roulette.rr: true
       roulette.sr: true
   roulette.rr:
     description: Allows you to start a roulette.
-    default: false
+    default: op
   roulette.sr:
     description: Allows you to start a staff roulette.
-    default: false
+    default: op
+  roulette.srrank:
+    description: Allows you to start a staff roulette.
+    default: op
+  roulette.admin:
+    description: Allows you access to admin commands
+    default: op

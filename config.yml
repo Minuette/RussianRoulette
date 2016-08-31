@@ -1,0 +1,43 @@
+# Russian Roulette Plugin by Kaede_ 
+# Beta Version 0.1
+
+General:
+    Ignore Ops: false
+
+RussianRoulette:
+    Player Message:
+        Enabled: true 
+        Senders Name: true 
+        Message: ' hands you a &cgun'   
+    Survive Message:
+        Enabled: true 
+        Message: '*click'       
+    Death Message:
+        Enabled: true
+        Message: '&cBang!'   
+    Global Message:
+        Enabled: true
+        Senders Name: true
+        Message: ' has started a &cRussian Roulette...&d Good Luck!'
+#Currently not added.
+StaffRoulette:
+    Player Message:
+        Enabled: true 
+        Senders Name: true 
+        Message: ' hands you a &cgun'   
+    Survive Message:
+        Enabled: true 
+        Message: '*click'       
+    Death Message:
+        Enabled: true
+        Message: '&cBang!'   
+    Global Message:
+        Enabled: true
+        Senders Name: true
+        Message: ' has started a &cRussian Roulette...&d Good Luck!'
+        
+        
+Respawning:
+    Keep INV: true
+    Keep EXP: true
+

@@ -7,16 +7,18 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import moe.kaede.RR.commands.roulette;
 import moe.kaede.RR.commands.rr;
+import moe.kaede.RR.commands.sr;
 import moe.kaede.RR.events.onRespawn;
 
 public class RussianRoulette extends JavaPlugin {
-	public String RouletteKilled;
-	public int PlayerXP;
 
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = getDescription();
 		Logger logger = getLogger();
+		
+		registerConfig();
 
 		registerCommands();
 		registerEvents();
@@ -34,12 +36,20 @@ public class RussianRoulette extends JavaPlugin {
 	}
 
 	public void registerCommands() {
-		getCommand("rr").setExecutor(new rr());
+		getCommand("rr").setExecutor(new rr(this));
+		getCommand("sr").setExecutor(new sr());
+		getCommand("roulette").setExecutor(new roulette(this));
 	}
 
 	public void registerEvents() {
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvents(new onRespawn(), this);
+		
+		pm.registerEvents(new onRespawn(this), this);
+	}
+	
+	public void registerConfig(){
+		getConfig().options().copyDefaults(true);
+		saveConfig();
 	}
 
 }
